@@ -12,8 +12,11 @@ function getTimeInSeconds() {
 });
 };
 
-player.setCurrentTime(localStorage.getItem(LOCALSTORAGE_KEY)).then(function(seconds) {
-    
+const getStorageItem = localStorage.getItem(LOCALSTORAGE_KEY);
+
+if (getStorageItem) {
+    player.setCurrentTime(getStorageItem).then(function(seconds) {    
 }).catch(function (error) {
     console.log(error.name);
 });
+};
